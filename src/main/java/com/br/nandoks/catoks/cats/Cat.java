@@ -1,14 +1,13 @@
-package com.br.nandoks.catoks.Cat;
+package com.br.nandoks.catoks.cats;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
+@Table(name="cats")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -20,6 +19,6 @@ public class Cat {
     private Long id;
 
     private String name;
-    private Date birthday;
+    private LocalDate birthday;
 
 }
