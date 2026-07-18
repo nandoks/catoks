@@ -1,0 +1,20 @@
+scalar Date @specifiedBy(url:"https://tools.ietf.org/html/rfc3339")
+
+type Query{
+    findAllCats: [Cat!]!
+}
+
+type Mutation{
+    addNewCat(catInput: CatInput): Cat
+}
+
+type Cat{
+    id: ID!
+    name: String
+    birthday: Date
+}
+
+input CatInput{
+    name: String!
+    birthday: Date!
+}
