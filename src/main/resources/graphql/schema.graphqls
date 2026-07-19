@@ -6,15 +6,18 @@ type Query{
 
 type Mutation{
     addNewCat(catInput: CatInput): Cat
+    updateCat(catId: ID!, catInput: CatInput): Cat
 }
 
 type Cat{
     id: ID!
     name: String
     birthday: Date
+    gender: Gender
 }
 
 input CatInput{
-    name: String!
-    birthday: Date!
+    name: String
+    birthday: Date
+    gender: Gender
 }

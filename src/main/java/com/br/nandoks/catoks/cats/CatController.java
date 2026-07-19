@@ -32,4 +32,11 @@ public class CatController {
         return catRepository.save(newCat);
     }
 
+    @MutationMapping
+    @Transactional
+    public Cat updateCat(@Argument Long catId,  @Argument CatInput catInput) {
+        var cat  = catRepository.findById(catId).orElseThrow(() -> new RuntimeException("cat not found"));
+        return cat.updateCat(catInput);
+    }
+
 }
