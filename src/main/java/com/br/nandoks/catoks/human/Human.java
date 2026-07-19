@@ -1,10 +1,13 @@
 package com.br.nandoks.catoks.human;
 
+import com.br.nandoks.catoks.cats.Cat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Table(name = "owners")
@@ -18,8 +21,8 @@ public class Human {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //@OneToMany(mappedBy = "human")
-    //private Cat cat;
+    @OneToMany(mappedBy = "human")
+    private List<Cat> cat;
 
     String firstName;
     String lastName;
