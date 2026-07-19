@@ -1,10 +1,12 @@
 package com.br.nandoks.catoks.cats;
 
 import com.br.nandoks.catoks.enums.Gender;
-import com.br.nandoks.catoks.person.Human;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
@@ -28,8 +30,8 @@ public class Cat {
     private Gender gender;
 
     public Cat updateCat(CatInput catInput) {
-        this.gender = catInput.gender() != null ? catInput.gender(): this.gender;
-        this.birthday = catInput.birthday() != null ? catInput.birthday(): this.birthday;
+        this.gender = catInput.gender() != null ? catInput.gender() : this.gender;
+        this.birthday = catInput.birthday() != null ? catInput.birthday() : this.birthday;
         this.name = catInput.name() != null ? catInput.name() : this.name;
         return this;
     }
