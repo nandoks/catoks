@@ -14,8 +14,16 @@ type Cat{
     name: String
     birthday: Date
     gender: Gender
+    human: [Human]
 }
 
+type Human{
+    id: ID!
+    firstName: String
+    lastName: String
+    phone: String
+    email: String
+}
 input CatInput{
     name: String
     birthday: Date
