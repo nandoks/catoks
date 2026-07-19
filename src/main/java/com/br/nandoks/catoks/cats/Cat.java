@@ -1,7 +1,7 @@
 package com.br.nandoks.catoks.cats;
 
 import com.br.nandoks.catoks.enums.Gender;
-import com.br.nandoks.catoks.human.Human;
+import com.br.nandoks.catoks.user.User;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -41,6 +41,6 @@ public class Cat {
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Human human;
+    private User user;
 
 }

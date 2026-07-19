@@ -3,14 +3,14 @@ scalar Date @specifiedBy(url:"https://tools.ietf.org/html/rfc3339")
 type Query{
     findAllCats: [Cat!]!
     findCatById(id: ID!): Cat
-    findAllHumans: [Human!]!
-    findHumanById(id: ID!): Human
+    findAllUsers: [User!]!
+    findUserById(id: ID!): User
 }
 
 type Mutation{
     addNewCat(catInput: CatInput): Cat
-    updateCat(id: ID!, catInput: CatInput, humanId: ID): Cat
-    addNewHuman(humanInput: HumanInput): Human
+    updateCat(id: ID!, catInput: CatInput, UserId: ID): Cat
+    addNewUser(userInput: UserInput): User
 }
 
 type Cat{
@@ -18,15 +18,16 @@ type Cat{
     name: String
     birthday: Date
     gender: Gender
-    human: Human
+    User: User
 }
 
-type Human{
+type User{
     id: ID!
     firstName: String
     lastName: String
     phone: String
     email: String
+    gender: Gender
     cat: [Cat!]
 }
 
@@ -36,9 +37,10 @@ input CatInput{
     gender: Gender
 }
 
-input HumanInput{
+input UserInput{
     firstName: String
     lastName: String
     phone: String
     email: String
+    gender: Gender
 }

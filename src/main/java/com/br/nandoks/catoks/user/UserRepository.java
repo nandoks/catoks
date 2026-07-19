@@ -1,8 +1,8 @@
-package com.br.nandoks.catoks.human;
+package com.br.nandoks.catoks.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.graphql.data.GraphQlRepository;
 
 @GraphQlRepository
-public interface HumanRepository  extends JpaRepository<Human, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 }

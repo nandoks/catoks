@@ -1,15 +1,12 @@
 package com.br.nandoks.catoks.cats;
 
-import com.br.nandoks.catoks.human.HumanRepository;
+import com.br.nandoks.catoks.user.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
-import javax.management.relation.RoleUnresolved;
-import java.beans.Transient;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,11 +14,11 @@ import java.util.Optional;
 public class CatController {
 
     private CatRepository catRepository;
-    private HumanRepository humanRepository;
+    private UserRepository userRepository;
 
-    public CatController(CatRepository catRepository, HumanRepository humanRepository) {
+    public CatController(CatRepository catRepository, UserRepository userRepository) {
         this.catRepository = catRepository;
-        this.humanRepository = humanRepository;
+        this.userRepository = userRepository;
     }
 
     @QueryMapping
@@ -46,11 +43,11 @@ public class CatController {
 
     @MutationMapping
     @Transactional
-    public Cat updateCat(@Argument Long id,  @Argument CatInput catInput, @Argument Long humanId) {
+    public Cat updateCat(@Argument Long id,  @Argument CatInput catInput, @Argument Long UserId) {
         var cat  = catRepository.findById(id).orElseThrow(() -> new RuntimeException("cat not found"));
-        var human = humanRepository.findById(humanId).orElseThrow(() -> new RuntimeException("human not " +
+        var User = userRepository.findById(UserId).orElseThrow(() -> new RuntimeException("User not " +
                 "found"));
-        cat.setHuman(human);
+        cat.setUser(User);
         return cat.updateCat(catInput);
     }
 
