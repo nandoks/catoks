@@ -31,6 +31,9 @@ public class Cat {
     private Gender gender;
 
     public Cat updateCat(CatInput catInput) {
+        if (catInput == null){
+            return this;
+        }
         this.gender = catInput.gender() != null ? catInput.gender() : this.gender;
         this.birthday = catInput.birthday() != null ? catInput.birthday() : this.birthday;
         this.name = catInput.name() != null ? catInput.name() : this.name;
