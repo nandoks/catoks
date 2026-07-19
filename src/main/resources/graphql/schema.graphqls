@@ -2,11 +2,15 @@ scalar Date @specifiedBy(url:"https://tools.ietf.org/html/rfc3339")
 
 type Query{
     findAllCats: [Cat!]!
+    findCatById(id: ID!): Cat
+    findAllHumans: [Human!]!
+    findHumanById(id: ID!): Human
 }
 
 type Mutation{
     addNewCat(catInput: CatInput): Cat
-    updateCat(catId: ID!, catInput: CatInput): Cat
+    updateCat(id: ID!, catInput: CatInput, humanId: ID): Cat
+    addNewHuman(humanInput: HumanInput): Human
 }
 
 type Cat{
@@ -14,7 +18,7 @@ type Cat{
     name: String
     birthday: Date
     gender: Gender
-    human: [Human]
+    human: Human
 }
 
 type Human{
@@ -23,9 +27,18 @@ type Human{
     lastName: String
     phone: String
     email: String
+    cat: [Cat!]
 }
+
 input CatInput{
     name: String
     birthday: Date
     gender: Gender
+}
+
+input HumanInput{
+    firstName: String
+    lastName: String
+    phone: String
+    email: String
 }
