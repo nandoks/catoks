@@ -1,9 +1,10 @@
 name: Build Pipeline
 
 on:
+  push:
+    branches: [ "*" ]
   pull_request:
-    types: [closed]
-    branches: [master]
+    branches: [ "*" ]
 
 concurrency:
   group: build-${{ github.ref }}
