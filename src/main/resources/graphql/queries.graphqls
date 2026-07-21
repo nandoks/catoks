@@ -1,0 +1,6 @@
+type Query{
+    findAllCats: [Cat!]!
+    findCatById(id: ID!): Cat
+    findAllUsers: [User!]!
+    findUserById(id: ID!): User
+}

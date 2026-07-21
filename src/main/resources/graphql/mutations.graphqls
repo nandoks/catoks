@@ -1,0 +1,5 @@
+type Mutation{
+    addNewCat(catInput: CatInput): Cat
+    updateCat(id: ID!, catInput: CatInput, UserId: ID): Cat
+    addNewUser(userInput: UserInput): User
+}
