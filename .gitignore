@@ -60,3 +60,4 @@ replay_pid*
 .mvn/
 mvnw
 mvnw.cmd
+.env
