@@ -23,8 +23,7 @@ jobs:
           tags: |
             nandoks/catoks-backend:latest
             nandoks/catoks-backend:${{ github.sha }}
-          context: .
           registry: docker.io
-          dockerfile: Dockerfile
+          dockerfile: ./Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
