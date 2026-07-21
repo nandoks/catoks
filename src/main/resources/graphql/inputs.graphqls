@@ -1,0 +1,13 @@
+input CatInput{
+    name: String
+    birthday: Date
+    gender: Gender
+}
+
+input UserInput{
+    firstName: String
+    lastName: String
+    phone: String
+    email: String
+    gender: Gender
+}
