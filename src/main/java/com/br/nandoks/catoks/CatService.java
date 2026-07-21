@@ -16,7 +16,7 @@ import java.util.List;
 @Service
 public class CatService {
 
-    List<Cat> cats = new ArrayList<Cat>();
+    List<Cat> cats = new ArrayList<>();
 
     @Autowired
     private CatRepository catRepository;
