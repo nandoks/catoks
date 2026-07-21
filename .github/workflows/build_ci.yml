@@ -32,7 +32,7 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v7
         with:
           image: nandoks/catoks-backend
-          tags: |
+          tags:
             nandoks/catoks-backend:latest
             nandoks/catoks-backend:${{ github.sha }}
           registry: docker.io
