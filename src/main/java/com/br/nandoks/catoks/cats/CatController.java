@@ -1,7 +1,9 @@
 package com.br.nandoks.catoks.cats;
 
+import com.br.nandoks.catoks.CatService;
 import com.br.nandoks.catoks.user.UserRepository;
 import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
@@ -13,24 +15,22 @@ import java.util.Optional;
 @Controller
 public class CatController {
 
+    @Autowired
     private CatRepository catRepository;
+    @Autowired
     private UserRepository userRepository;
-
-    public CatController(CatRepository catRepository, UserRepository userRepository) {
-        this.catRepository = catRepository;
-        this.userRepository = userRepository;
-    }
+    @Autowired
+    private CatService catService;
 
     @QueryMapping
     public List<Cat> findAllCats() {
-        return catRepository.findAll();
+        return catService.findAllCats();
     }
 
     @QueryMapping
     public Optional<Cat> findCatById(@Argument Long id) {
         return Optional.of(catRepository.findById(id).orElseThrow(() -> new RuntimeException("No Cat with id " + id)));
     }
-
 
     @MutationMapping
     @Transactional

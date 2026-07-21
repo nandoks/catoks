@@ -39,6 +39,7 @@ public class Cat {
     @OneToMany(mappedBy = "cat")
     private List<Vaccine> vaccine;
 
+
     public Cat updateCat(CatInput catInput) {
         if (catInput == null){
             return this;
