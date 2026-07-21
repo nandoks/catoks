@@ -29,6 +29,7 @@ jobs:
           name: app-jar
           path: target/*.jar
 
+
   docker:
     needs: build
     uses: ./.github/workflows/Docker.yml
