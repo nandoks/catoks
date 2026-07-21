@@ -20,8 +20,8 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v7
         with:
           image: nandoks/catoks-backend
-          tags: latest
+          tags: leonardosartorello/go_ci:${{github.ref_name}}
           registry: docker.io
-          dockerfile: Dockerfile.ci
+          dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
