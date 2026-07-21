@@ -34,7 +34,6 @@ jobs:
           image: nandoks/catoks-backend
           tags:
             nandoks/catoks-backend:latest
-            nandoks/catoks-backend:${{ github.sha }}
           registry: docker.io
           dockerfile: ./Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
